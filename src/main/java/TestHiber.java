@@ -22,7 +22,7 @@ public class TestHiber {
 
         for (Employee employee: employees) {
             Person manager = employee.getManager();
-            System.out.print(manager.getName());
+            System.out.println(manager.getName());
         }
     }
 }
