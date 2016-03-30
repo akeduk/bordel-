@@ -1,19 +1,46 @@
 package com.instinctools.bordel.model;
 
+import javax.persistence.*;
 import java.util.Calendar;
 
 /**
  * Created by mack on 23.03.2016.
  */
+@Entity
+@Table(name = "service")
 public class Service {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "start_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar startDate;
+
+    @Column(name = "end_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar endDate;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "cost")
     private Integer cost;
+
+    @Column(name = "status")
     private String status;
+
+    @OneToOne
+    @JoinColumn(name = "feedback_id")
     private Feedback feedback;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id", nullable = false, insertable = false)
     private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id", nullable = false, insertable = false)
     private Employee employee;
 
     public Long getId() {

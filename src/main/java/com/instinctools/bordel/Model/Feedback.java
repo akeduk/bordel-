@@ -1,11 +1,22 @@
 package com.instinctools.bordel.model;
 
+import javax.persistence.*;
+
 /**
  * Created by mack on 23.03.2016.
  */
+@Entity
+@Table(name = "feedback")
 public class Feedback {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "comment")
     private String comment;
+
+    @Column(name = "mark")
     private Integer mark;
 
     public Long getId() {

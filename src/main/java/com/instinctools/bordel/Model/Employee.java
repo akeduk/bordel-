@@ -29,12 +29,12 @@ public class Employee  extends Person{
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "office_id", insertable = false, updatable = false)
     private Office office;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "manager_id", insertable = false, updatable = false)
     private Manager manager;
 
     public String getNickname() {
