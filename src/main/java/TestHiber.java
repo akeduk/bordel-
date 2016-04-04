@@ -1,10 +1,9 @@
+import com.instinctools.bordel.dao.GenericDao;
 import com.instinctools.bordel.model.Client;
 import com.instinctools.bordel.model.Employee;
-import com.instinctools.bordel.model.Person;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import com.instinctools.bordel.dao.hibernate.ClientDao;
+import com.instinctools.bordel.dao.hibernate.ClientDaoHibernate;
+import com.instinctools.bordel.dao.hibernate.EmployeeDaoHibernate;
 
 import java.util.List;
 
@@ -13,16 +12,21 @@ import java.util.List;
  */
 public class TestHiber {
     public static final void main(String[] args){
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
 
-        Criteria criteria = session.createCriteria(Employee.class);
+        GenericDao<Employee, Long> employeeDao = new EmployeeDaoHibernate(Employee.class);
 
-        List<Employee> employees = (List<Employee>)criteria.list();
+        List<Employee> employees = employeeDao.getAll();
 
         for (Employee employee: employees) {
-            Person manager = employee.getManager();
-            System.out.println(manager.getName());
+
+            System.out.println(employee.getName());
+        }
+
+        ClientDao clientDao = new ClientDaoHibernate(Client.class);
+        List<Client> clients = clientDao.getByPreferences("Oral");
+
+        for (Client client: clients) {
+            System.out.println(client.getSex());
         }
     }
 }

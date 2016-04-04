@@ -16,7 +16,8 @@ public class Client extends Person {
     private Calendar birthday;
 
     @Column(name = "sex")
-    private String sex;
+    @Enumerated
+    private Sex sex;
 
     @Column(name = "preferences")
     private String preferences;
@@ -35,11 +36,11 @@ public class Client extends Person {
         this.birthday = birthday;
     }
 
-    public String getSex() {
+    public Sex getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 

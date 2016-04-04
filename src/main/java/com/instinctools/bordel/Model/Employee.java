@@ -17,7 +17,8 @@ public class Employee  extends Person{
     private Integer tariff;
 
     @Column(name = "sex")
-    private String sex;
+    @Enumerated
+    private Sex sex;
 
     @Column(name = "birthday")
     @Temporal(TemporalType.TIMESTAMP)
@@ -53,11 +54,11 @@ public class Employee  extends Person{
         this.tariff = tariff;
     }
 
-    public String getSex() {
+    public Sex getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 
