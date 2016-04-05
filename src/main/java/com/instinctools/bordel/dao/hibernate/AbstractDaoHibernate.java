@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class AbstractDaoHibernate<T, PK extends Serializable> implements GenericDao<T, PK> {
 
-    private Class<T> persistentClass;
+    protected Class<T> persistentClass;
 
     public AbstractDaoHibernate(final Class<T> persistentClass) {
         this.persistentClass = persistentClass;
