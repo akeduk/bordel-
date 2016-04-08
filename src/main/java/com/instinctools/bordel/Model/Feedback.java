@@ -3,7 +3,7 @@ package com.instinctools.bordel.model;
 import javax.persistence.*;
 
 /**
- * Created by mack on 23.03.2016.
+ * Feedback POJO. It represents feedback about service.
  */
 @Entity
 @Table(name = "feedback")

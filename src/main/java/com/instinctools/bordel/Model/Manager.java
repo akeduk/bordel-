@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
- * Created by mack on 23.03.2016.
+ * Manager POJO. Represents person who manage workers
  */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")

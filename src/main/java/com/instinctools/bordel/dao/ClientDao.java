@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Client DAO interface.
  */
-public interface ClientDao extends GenericDao<Client, Long> {
+public interface ClientDao extends PersonDao<Client> {
 
     /**
      * Finding clients with preferences.

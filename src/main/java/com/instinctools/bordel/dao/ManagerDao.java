@@ -5,6 +5,6 @@ import com.instinctools.bordel.model.Manager;
 /**
  * Manager DAO interface
  */
-public interface ManagerDao extends GenericDao<Manager, Long> {
+public interface ManagerDao extends PersonDao<Manager> {
 
 }

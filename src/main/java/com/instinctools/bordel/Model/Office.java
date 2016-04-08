@@ -3,7 +3,7 @@ package com.instinctools.bordel.model;
 import javax.persistence.*;
 
 /**
- * Created by mack on 23.03.2016.
+ * Office POJO. Represents location where workers make service.
  */
 @Entity
 @Table(name = "office")

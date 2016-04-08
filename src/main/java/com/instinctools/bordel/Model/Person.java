@@ -3,7 +3,7 @@ package com.instinctools.bordel.model;
 import javax.persistence.*;
 
 /**
- * Created by mack on 23.03.2016.
+ * Person POJO. Represents person who interacts with Bordel
  */
 @Entity
 @Table(name = "person")

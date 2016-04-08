@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Calendar;
 
 /**
- * Created by mack on 23.03.2016.
+ *  Client of service POJO
  */
 @Entity
 @Table(name = "client")
