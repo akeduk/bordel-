@@ -26,7 +26,7 @@ public interface EmployeeDao extends PersonDao<Employee> {
      * @param sex filter value
      * @return List of employees with concrete sex
      */
-    List<Employee> getBySex(Sex sex);
+    List<Employee> getBySex(final Sex sex);
 
     /**
      * Finding Employees by age.
@@ -34,26 +34,26 @@ public interface EmployeeDao extends PersonDao<Employee> {
      * @param to date of max birthday
      * @return List of Employees between from and to
      */
-    List<Employee> getByAge(Calendar from, Calendar to);
+    List<Employee> getByAge(final Calendar from, final Calendar to);
 
     /**
      * Finding employees who has specialization
      * @param specialization for finding
      * @return List of founds Employees
      */
-    List<Employee> getBySpecialization(String specialization);
+    List<Employee> getBySpecialization(final String specialization);
 
     /**
      * Finding employees by location
      * @param office where found employees
      * @return List of employees in office
      */
-    List<Employee> getByOffice(Office office);
+    List<Employee> getByOffice(final Office office);
 
     /**
      * Finding employees by manager
      * @param manager who manage employees
      * @return List of employees by manager
      */
-    List<Employee> getByManager(Manager manager);
+    List<Employee> getByManager(final Manager manager);
 }

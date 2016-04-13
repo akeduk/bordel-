@@ -15,7 +15,7 @@ public class FeedbackDaoHibernate extends AbstractDaoHibernate<Feedback, Long> i
         super(persistentClass);
     }
 
-    public List<Feedback> getByEmployee(Employee employee) {
+    public List<Feedback> getByEmployee(final Employee employee) {
         return null;
     }
 }

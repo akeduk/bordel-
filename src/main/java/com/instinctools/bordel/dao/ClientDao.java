@@ -1,8 +1,6 @@
 package com.instinctools.bordel.dao;
 
 import com.instinctools.bordel.model.Client;
-import com.instinctools.bordel.dao.GenericDao;
-import com.instinctools.bordel.model.Sex;
 
 import java.util.Calendar;
 import java.util.List;
@@ -17,7 +15,7 @@ public interface ClientDao extends PersonDao<Client> {
      * @param preferences - string of preference
      * @return List of clients who has these preferences
      */
-    List<Client> getByPreferences(String preferences);
+    List<Client> getByPreferences(final String preferences);
 
     /**
      * Finding Clients by age.
@@ -25,6 +23,6 @@ public interface ClientDao extends PersonDao<Client> {
      * @param to date of max birthday
      * @return List of clients between from and to
      */
-    List<Client> getByBirthday(Calendar from, Calendar to);
+    List<Client> getByBirthday(final Calendar from, Calendar to);
 
 }

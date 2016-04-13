@@ -18,14 +18,14 @@ public class ClientDaoHibernate extends PersonDaoHibernate<Client> implements Cl
         super(persistentClass);
     }
 
-    public List<Client> getByPreferences(String preferences) {
+    public List<Client> getByPreferences(final String preferences) {
         Criteria cr = getSession().createCriteria(Client.class);
         cr.add(Restrictions.like("preferences", preferences, MatchMode.ANYWHERE));
 
         return (List<Client>)cr.list();
     }
 
-    public List<Client> getByBirthday(Calendar from, Calendar to) {
+    public List<Client> getByBirthday(final Calendar from, Calendar to) {
         Criteria cr = getSession().createCriteria(Client.class);
         cr.add(Restrictions.between("birthday", from, to));
 

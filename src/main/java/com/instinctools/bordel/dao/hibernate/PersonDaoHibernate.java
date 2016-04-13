@@ -1,7 +1,6 @@
 package com.instinctools.bordel.dao.hibernate;
 
 import com.instinctools.bordel.dao.PersonDao;
-import com.instinctools.bordel.model.Client;
 import com.instinctools.bordel.model.Person;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -17,7 +16,7 @@ public abstract class PersonDaoHibernate<T extends Person> extends AbstractDaoHi
         super(persistentClass);
     }
 
-    public List<T> getByName(String name) {
+    public List<T> getByName(final String name) {
         Criteria cr = getSession().createCriteria(super.persistentClass);
         cr.add(Restrictions.eq("name", name));
 

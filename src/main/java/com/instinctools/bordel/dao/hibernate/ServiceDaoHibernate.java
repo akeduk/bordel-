@@ -10,16 +10,13 @@ import org.hibernate.criterion.Restrictions;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- * Created by mack on 05.04.2016.
- */
 public class ServiceDaoHibernate extends AbstractDaoHibernate<Service, Long> implements ServiceDao {
 
     public ServiceDaoHibernate(Class<Service> persistentClass) {
         super(persistentClass);
     }
 
-    public List<Service> getByEmployee(Employee employee, Calendar dateFrom, Calendar dateTo) {
+    public List<Service> getByEmployee(final Employee employee, final Calendar dateFrom, final Calendar dateTo) {
         Criteria cr = getSession().createCriteria(Service.class);
         cr.add(Restrictions.and(
                 Restrictions.eq("employee", employee),
@@ -29,7 +26,7 @@ public class ServiceDaoHibernate extends AbstractDaoHibernate<Service, Long> imp
         return cr.list();
     }
 
-    public List<Service> getByStatus(Status status) {
+    public List<Service> getByStatus(final Status status) {
         Criteria cr = getSession().createCriteria(Service.class);
         cr.add(Restrictions.eq("status", status));
 

@@ -28,35 +28,35 @@ public class EmployeeDaoHibernate extends PersonDaoHibernate<Employee> implement
         return cr.list();
     }
 
-    public List<Employee> getBySex(Sex sex) {
+    public List<Employee> getBySex(final Sex sex) {
         Criteria cr = getSession().createCriteria(Employee.class);
         cr.add(Restrictions.eq("sex", sex));
 
         return cr.list();
     }
 
-    public List<Employee> getByAge(Calendar from, Calendar to) {
+    public List<Employee> getByAge(final Calendar from, final Calendar to) {
         Criteria cr = getSession().createCriteria(Employee.class);
         cr.add(Restrictions.between("birthday", from, to));
 
         return cr.list();
     }
 
-    public List<Employee> getBySpecialization(String specialization) {
+    public List<Employee> getBySpecialization(final String specialization) {
         Criteria cr = getSession().createCriteria(Employee.class);
         cr.add(Restrictions.like("specialization", specialization, MatchMode.ANYWHERE));
 
         return cr.list();
     }
 
-    public List<Employee> getByOffice(Office office) {
+    public List<Employee> getByOffice(final Office office) {
         Criteria cr = getSession().createCriteria(Employee.class);
         cr.add(Restrictions.eq("office", office));
 
         return cr.list();
     }
 
-    public List<Employee> getByManager(Manager manager) {
+    public List<Employee> getByManager(final Manager manager) {
         Criteria cr = getSession().createCriteria(Employee.class);
         cr.add(Restrictions.eq("manager", manager));
 

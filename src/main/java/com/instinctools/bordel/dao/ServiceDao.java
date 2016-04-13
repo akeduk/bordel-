@@ -19,12 +19,12 @@ public interface ServiceDao extends GenericDao<Service, Long> {
      * @param dateTo - - start date of founding
      * @return List of found services
      */
-    List getByEmployee(Employee employee, Calendar dateFrom, Calendar dateTo);
+    List getByEmployee(final Employee employee, final Calendar dateFrom, final Calendar dateTo);
 
     /**
      * Getting services with specified status
      * @param status for filter
      * @return List of found services
      */
-    List<Service> getByStatus(Status status);
+    List<Service> getByStatus(final Status status);
 }
