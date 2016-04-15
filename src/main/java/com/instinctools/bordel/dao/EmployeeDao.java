@@ -19,14 +19,14 @@ public interface EmployeeDao extends PersonDao<Employee> {
      * @param max - end border of tariff
      * @return List of employees who has tariff from min to max.
      */
-    List<Employee> getByTariff(Integer min, Integer max);
+    List<Employee> getByTariff(Float min, Float max);
 
     /**
      * Finding employees depending on the gender
      * @param sex filter value
      * @return List of employees with concrete sex
      */
-    List<Employee> getBySex(final Sex sex);
+    List<Employee> getBySex(Sex sex);
 
     /**
      * Finding Employees by age.
@@ -34,26 +34,26 @@ public interface EmployeeDao extends PersonDao<Employee> {
      * @param to date of max birthday
      * @return List of Employees between from and to
      */
-    List<Employee> getByAge(final Calendar from, final Calendar to);
+    List<Employee> getByAge(Calendar from, Calendar to);
 
     /**
      * Finding employees who has specialization
      * @param specialization for finding
      * @return List of founds Employees
      */
-    List<Employee> getBySpecialization(final String specialization);
+    List<Employee> getBySpecialization(String specialization);
 
     /**
      * Finding employees by location
      * @param office where found employees
      * @return List of employees in office
      */
-    List<Employee> getByOffice(final Office office);
+    List<Employee> getByOffice(Office office);
 
     /**
      * Finding employees by manager
      * @param manager who manage employees
      * @return List of employees by manager
      */
-    List<Employee> getByManager(final Manager manager);
+    List<Employee> getByManager(Manager manager);
 }

@@ -3,7 +3,7 @@ package com.instinctools.bordel.dao.hibernate;
 import com.instinctools.bordel.dao.ServiceDao;
 import com.instinctools.bordel.model.Employee;
 import com.instinctools.bordel.model.Service;
-import com.instinctools.bordel.model.Status;
+import com.instinctools.bordel.model.ServiceStatus;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
@@ -26,7 +26,7 @@ public class ServiceDaoHibernate extends AbstractDaoHibernate<Service, Long> imp
         return cr.list();
     }
 
-    public List<Service> getByStatus(final Status status) {
+    public List<Service> getByStatus(final ServiceStatus status) {
         Criteria cr = getSession().createCriteria(Service.class);
         cr.add(Restrictions.eq("status", status));
 

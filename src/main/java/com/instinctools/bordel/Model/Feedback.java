@@ -1,6 +1,14 @@
 package com.instinctools.bordel.model;
 
-import javax.persistence.*;
+import org.hibernate.validator.constraints.Range;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * Feedback POJO. It represents feedback about service.
@@ -13,9 +21,11 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     @Column(name = "comment")
     private String comment;
 
+    @Range(min = 1, max = 5)
     @Column(name = "mark")
     private Integer mark;
 
@@ -23,7 +33,7 @@ public class Feedback {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -31,7 +41,7 @@ public class Feedback {
         return comment;
     }
 
-    public void setComment(String comment) {
+    public void setComment(final String comment) {
         this.comment = comment;
     }
 
@@ -39,7 +49,7 @@ public class Feedback {
         return mark;
     }
 
-    public void setMark(Integer mark) {
+    public void setMark(final Integer mark) {
         this.mark = mark;
     }
 }

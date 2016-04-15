@@ -14,5 +14,5 @@ public interface PersonDao<T extends Person> extends GenericDao<T, Long> {
      * @param name which needs to found
      * @return List of found persons
      */
-    List<T> getByName(final String name);
+    List<T> getByName(String name);
 }

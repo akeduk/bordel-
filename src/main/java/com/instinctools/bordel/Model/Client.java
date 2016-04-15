@@ -1,6 +1,12 @@
 package com.instinctools.bordel.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Calendar;
 
 /**
@@ -12,7 +18,7 @@ import java.util.Calendar;
 public class Client extends Person {
 
     @Column(name = "birthday")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Calendar birthday;
 
     @Column(name = "sex")
@@ -32,7 +38,7 @@ public class Client extends Person {
         return birthday;
     }
 
-    public void setBirthday(Calendar birthday) {
+    public void setBirthday(final Calendar birthday) {
         this.birthday = birthday;
     }
 
@@ -40,7 +46,7 @@ public class Client extends Person {
         return sex;
     }
 
-    public void setSex(Sex sex) {
+    public void setSex(final Sex sex) {
         this.sex = sex;
     }
 
@@ -48,7 +54,7 @@ public class Client extends Person {
         return preferences;
     }
 
-    public void setPreferences(String preferences) {
+    public void setPreferences(final String preferences) {
         this.preferences = preferences;
     }
 
@@ -56,7 +62,7 @@ public class Client extends Person {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 }

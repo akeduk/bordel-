@@ -22,13 +22,13 @@ public class ClientDaoHibernate extends PersonDaoHibernate<Client> implements Cl
         Criteria cr = getSession().createCriteria(Client.class);
         cr.add(Restrictions.like("preferences", preferences, MatchMode.ANYWHERE));
 
-        return (List<Client>)cr.list();
+        return cr.list();
     }
 
     public List<Client> getByBirthday(final Calendar from, Calendar to) {
         Criteria cr = getSession().createCriteria(Client.class);
         cr.add(Restrictions.between("birthday", from, to));
 
-        return (List<Client>) cr.list();
+        return cr.list();
     }
 }

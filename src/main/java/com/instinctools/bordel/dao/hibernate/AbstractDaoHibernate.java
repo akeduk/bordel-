@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by mack on 04.04.2016.
  */
-public class AbstractDaoHibernate<T, PK extends Serializable> implements GenericDao<T, PK> {
+public abstract class AbstractDaoHibernate<T, PK extends Serializable> implements GenericDao<T, PK> {
 
     protected Class<T> persistentClass;
 
@@ -22,8 +22,7 @@ public class AbstractDaoHibernate<T, PK extends Serializable> implements Generic
 
     public Session getSession() throws HibernateException {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        return session;
+        return sessionFactory.openSession();
     }
 
     public List<T> getAll() {

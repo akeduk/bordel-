@@ -21,7 +21,7 @@ public class EmployeeDaoHibernate extends PersonDaoHibernate<Employee> implement
         super(persistentClass);
     }
 
-    public List<Employee> getByTariff(Integer min, Integer max) {
+    public List<Employee> getByTariff(final Float min, final Float max) {
         Criteria cr = getSession().createCriteria(Employee.class);
         cr.add(Restrictions.between("tariff", min, max));
 

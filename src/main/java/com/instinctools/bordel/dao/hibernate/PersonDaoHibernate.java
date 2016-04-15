@@ -12,7 +12,7 @@ import java.util.List;
  */
 public abstract class PersonDaoHibernate<T extends Person> extends AbstractDaoHibernate<T, Long> implements PersonDao<T> {
 
-    public PersonDaoHibernate(Class<T> persistentClass) {
+    public PersonDaoHibernate(final Class<T> persistentClass) {
         super(persistentClass);
     }
 
@@ -20,6 +20,6 @@ public abstract class PersonDaoHibernate<T extends Person> extends AbstractDaoHi
         Criteria cr = getSession().createCriteria(super.persistentClass);
         cr.add(Restrictions.eq("name", name));
 
-        return (List<T>)cr.list();
+        return cr.list();
     }
 }
