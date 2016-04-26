@@ -8,18 +8,21 @@ import com.instinctools.bordel.model.Sex;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.Calendar;
 import java.util.List;
 
-/**
- * Created by mack on 04.04.2016.
- */
+@Repository
 public class EmployeeDaoHibernate extends PersonDaoHibernate<Employee> implements EmployeeDao {
 
-    public EmployeeDaoHibernate(Class<Employee> persistentClass) {
-        super(persistentClass);
+    public EmployeeDaoHibernate() {
+        super(Employee.class);
     }
+
+//    public EmployeeDaoHibernate(Class<Employee> persistentClass) {
+//        super(persistentClass);
+//    }
 
     public List<Employee> getByTariff(final Float min, final Float max) {
         Criteria cr = getSession().createCriteria(Employee.class);

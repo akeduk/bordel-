@@ -5,7 +5,10 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.List;
 
@@ -16,12 +19,18 @@ public abstract class AbstractDaoHibernate<T, PK extends Serializable> implement
 
     protected Class<T> persistentClass;
 
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
     public AbstractDaoHibernate(final Class<T> persistentClass) {
         this.persistentClass = persistentClass;
     }
 
     public Session getSession() throws HibernateException {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         return sessionFactory.openSession();
     }
 

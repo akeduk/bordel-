@@ -6,14 +6,16 @@ import com.instinctools.bordel.model.Service;
 import com.instinctools.bordel.model.ServiceStatus;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.Calendar;
 import java.util.List;
 
+@Repository
 public class ServiceDaoHibernate extends AbstractDaoHibernate<Service, Long> implements ServiceDao {
 
-    public ServiceDaoHibernate(Class<Service> persistentClass) {
-        super(persistentClass);
+    public ServiceDaoHibernate() {
+        super(Service.class);
     }
 
     public List<Service> getByEmployee(final Employee employee, final Calendar dateFrom, final Calendar dateTo) {
