@@ -17,13 +17,10 @@
 
     <servlet>
         <servlet-name>jersey-serlvet</servlet-name>
-        <servlet-class>
-            org.glassfish.jersey.servlet.ServletContainer
-        </servlet-class>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>com.instinctools.bordel.services</param-value>
-            <param-value>jersey.config.server.provider.scanning.recursive</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -38,5 +35,6 @@
             index.html
         </welcome-file>
     </welcome-file-list>
+
 
 </web-app>
