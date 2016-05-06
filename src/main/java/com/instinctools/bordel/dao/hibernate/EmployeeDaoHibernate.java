@@ -20,48 +20,41 @@ public class EmployeeDaoHibernate extends PersonDaoHibernate<Employee> implement
         super(Employee.class);
     }
 
-//    public EmployeeDaoHibernate(Class<Employee> persistentClass) {
-//        super(persistentClass);
-//    }
-
-    public List<Employee> getByTariff(final Float min, final Float max) {
+    @Override
+    public List<Employee> find(Filter filter) {
         Criteria cr = getSession().createCriteria(Employee.class);
-        cr.add(Restrictions.between("tariff", min, max));
 
-        return cr.list();
-    }
+        if (filter.getTariffMin() != null) {
+            cr.add(Restrictions.ge("tariff", filter.getTariffMin()));
+        }
 
-    public List<Employee> getBySex(final Sex sex) {
-        Criteria cr = getSession().createCriteria(Employee.class);
-        cr.add(Restrictions.eq("sex", sex));
+        if (filter.getTariffMax() != null) {
+            cr.add(Restrictions.le("tariff", filter.getTariffMax()));
+        }
 
-        return cr.list();
-    }
+        if (filter.getSex() != null) {
+            cr.add(Restrictions.eq("sex", filter.getSex()));
+        }
 
-    public List<Employee> getByAge(final Calendar from, final Calendar to) {
-        Criteria cr = getSession().createCriteria(Employee.class);
-        cr.add(Restrictions.between("birthday", from, to));
+        if (filter.getBirthdayFrom() != null) {
+            cr.add(Restrictions.ge("birthday", filter.getBirthdayFrom()));
+        }
 
-        return cr.list();
-    }
+        if (filter.getBirthdayTo() != null) {
+            cr.add(Restrictions.le("birthday", filter.getBirthdayTo()));
+        }
 
-    public List<Employee> getBySpecialization(final String specialization) {
-        Criteria cr = getSession().createCriteria(Employee.class);
-        cr.add(Restrictions.like("specialization", specialization, MatchMode.ANYWHERE));
+        if (filter.getSpecialization() != null) {
+            cr.add(Restrictions.like("specialization", filter.getSpecialization(), MatchMode.ANYWHERE));
+        }
 
-        return cr.list();
-    }
+        if (filter.getOffice() != null) {
+            cr.add(Restrictions.eq("office", filter.getOffice()));
+        }
 
-    public List<Employee> getByOffice(final Office office) {
-        Criteria cr = getSession().createCriteria(Employee.class);
-        cr.add(Restrictions.eq("office", office));
-
-        return cr.list();
-    }
-
-    public List<Employee> getByManager(final Manager manager) {
-        Criteria cr = getSession().createCriteria(Employee.class);
-        cr.add(Restrictions.eq("manager", manager));
+        if (filter.getManager() !=null) {
+            cr.add(Restrictions.eq("manager", filter.getManager()));
+        }
 
         return cr.list();
     }

@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class ClientDaoHibernate extends PersonDaoHibernate<Client> implements ClientDao {
 
-    public ClientDaoHibernate(Class<Client> persistentClass) {
-        super(persistentClass);
+    public ClientDaoHibernate() {
+        super(Client.class);
     }
 
     public List<Client> getByPreferences(final String preferences) {

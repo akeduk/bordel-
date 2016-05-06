@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class FeedbackDaoHibernate extends AbstractDaoHibernate<Feedback, Long> implements FeedbackDao {
 
-    public FeedbackDaoHibernate(Class<Feedback> persistentClass) {
-        super(persistentClass);
+    public FeedbackDaoHibernate() {
+        super(Feedback.class);
     }
 
     public List<Feedback> getByEmployee(final Employee employee) {
