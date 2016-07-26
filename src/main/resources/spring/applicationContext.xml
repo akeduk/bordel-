@@ -11,7 +11,7 @@
     <context:annotation-config/>
 
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="/hibernate.properties"/>
+        <property name="location" value="classpath:hibernate.properties"/>
     </bean>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">

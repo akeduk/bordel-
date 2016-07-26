@@ -25,9 +25,7 @@
                 <configuration>
                     <webApp>
                         <contextPath>/</contextPath>
-                        <descriptor>${project.basedir}/src/main/resources/webapp/WEB-INF/web.xml</descriptor>
                     </webApp>
-                    <webAppSourceDirectory>${project.basedir}/src/main/resources/</webAppSourceDirectory>
                     <stopKey/>
                     <stopPort/>
                 </configuration>

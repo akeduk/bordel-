@@ -28,7 +28,6 @@ public class EmployeeResource {
 
     @GET
     @Path("{id}")
-    @Consumes("application/text")
     public Response getEmployee(@PathParam("id")final Long id) {
         Response response;
         Employee employee = employeeService.get(id);
@@ -50,8 +49,6 @@ public class EmployeeResource {
     }
 
     @POST
-    @Produces("application/text")
-    @Consumes("application/text")
     public Response saveEmployee(final Employee employee) {
         Long id = employeeService.save(employee).getId();
 
@@ -59,8 +56,6 @@ public class EmployeeResource {
     }
 
     @PUT
-    @Produces("application/text")
-    @Consumes("application/text")
     public Response insertEmployee(final Employee employee) {
         Long id = employeeService.save(employee).getId();
 
@@ -69,8 +64,6 @@ public class EmployeeResource {
 
     @DELETE
     @Path("{id}")
-    @Produces("application/text")
-    @Consumes("application/text")
     public Response deleteEmployee(@PathParam("id")final Long id) {
 
         Response response;
